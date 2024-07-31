@@ -184,28 +184,27 @@ def get_group_admin_ids(chat_id):
 def handle_message(update: Update, context: CallbackContext):
     update.message.reply_text('Use /start to start and /join to join the game. Use /startgame to begin the game and /ball to play.')
 
-def main():
-    # Create the Updater and pass it your bot's token.
-    updater = Updater("7294713269:AAFwKEXMbLFMwKMDe6likn7NEbKEuLbVtxE", use_context=True)
 
-    # Get the dispatcher to register handlers
-    dp = updater.dispatcher
+def main():
+    # Create the Application and pass it your bot's token.
+    application = Application.builder().token("YOUR_TELEGRAM_BOT_TOKEN").build()
 
     # Register handlers
-    dp.add_handler(CommandHandler("start", start))
-    dp.add_handler(CommandHandler("join", join))
-    dp.add_handler(CommandHandler("startgame", start_game))
-    dp.add_handler(CommandHandler("endgame", end_game))
-    dp.add_handler(CommandHandler("addscore", add_score))
-    dp.add_handler(CommandHandler("ban", ban_player))
-    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
-    dp.add_handler(CommandHandler("ball", ball))
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CommandHandler("join", join))
+    application.add_handler(CommandHandler("startgame", start_game))
+    application.add_handler(CommandHandler("endgame", end_game))
+    application.add_handler(CommandHandler("addscore", add_score))
+    application.add_handler(CommandHandler("ban", ban_player))
+    application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_message))
+    application.add_handler(CommandHandler("ball", ball))
 
     # Start the Bot
-    updater.start_polling()
-
-    # Run the bot until you send a signal to stop
-    updater.idle()
-
+    application.run_polling()
+    application.idle()
 if __name__ == '__main__':
     main()
+
+    
+
+    
