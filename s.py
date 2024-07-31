@@ -187,7 +187,7 @@ def handle_message(update: Update, context: CallbackContext):
 
 def main():
     # Create the Application and pass it your bot's token.
-    application = Application.builder().token("YOUR_TELEGRAM_BOT_TOKEN").build()
+    application = Application.builder().token("7294713269:AAFwKEXMbLFMwKMDe6likn7NEbKEuLbVtxE").build()
 
     # Register handlers
     application.add_handler(CommandHandler("start", start))
