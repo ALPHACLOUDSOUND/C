@@ -1,4 +1,4 @@
-from telegram import Update, ParseMode
+from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, CallbackContext
 import logging
 import random
