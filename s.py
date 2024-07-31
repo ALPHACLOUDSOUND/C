@@ -186,8 +186,7 @@ def handle_message(update: Update, context: CallbackContext):
 
 def main():
     # Create the Updater and pass it your bot's token.
-    updater = telegram.ext.Updater("7294713269:AAFwKEXMbLFMwKMDe6likn7NEbKEuLbVtxE", use_context=True)
-    
+    updater = Updater("7294713269:AAFwKEXMbLFMwKMDe6likn7NEbKEuLbVtxE", use_context=True)
 
     # Get the dispatcher to register handlers
     dp = updater.dispatcher
